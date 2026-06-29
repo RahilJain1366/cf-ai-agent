@@ -221,7 +221,3 @@ ResearchWorkflow (Cloudflare Workflow)
 Workers AI
 └── @cf/meta/llama-3.3-70b-instruct-fp8-fast
 ```
-
-## Live URL
-
-https://cf-ai-agent.rahiljain1366.workers.dev/
