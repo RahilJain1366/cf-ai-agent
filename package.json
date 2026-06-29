@@ -1,0 +1,12 @@
+{
+  "name": "cf-ai-agent",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx wrangler dev --local",
+    "dev-local": "npm run dev",
+    "dev-remote": "npx wrangler dev --remote",
+    "deploy": "npx wrangler deploy",
+    "typecheck": "npx tsc --noEmit"
+  }
+}
