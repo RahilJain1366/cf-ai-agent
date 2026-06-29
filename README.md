@@ -2,6 +2,10 @@
 
 A Cloudflare Worker that combines streaming chat, conversation history, markdown export, and a background research workflow.
 
+## Live URL
+
+https://cf-ai-agent.rahiljain1366.workers.dev/
+
 ## Architecture
 
 ```
