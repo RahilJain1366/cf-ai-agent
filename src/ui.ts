@@ -373,15 +373,15 @@ export const htmlPage = `<!DOCTYPE html>
 
     function escapeHtml(value) {
       return value
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
+        .split('&').join('&amp;')
+        .split('<').join('&lt;')
+        .split('>').join('&gt;')
+        .split('"').join('&quot;')
+        .split("'").join('&#39;');
     }
 
     function renderText(text) {
-      return escapeHtml(text).replace(/\n/g, '<br />');
+      return escapeHtml(text).split('\\n').join('<br />');
     }
 
     function addMessage(role, text) {
@@ -469,7 +469,7 @@ export const htmlPage = `<!DOCTYPE html>
         if (done) break;
 
         buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split('\n');
+        const lines = buffer.split('\\n');
         buffer = lines.pop() || '';
 
         for (const line of lines) {

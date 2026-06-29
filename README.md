@@ -71,6 +71,7 @@ A Cloudflare Worker that combines streaming chat, conversation history, markdown
 ### Prerequisites
 - Node.js 18+
 - Cloudflare account (free tier works)
+- Wrangler authenticated with `npx wrangler login`
 
 ### Install
 
@@ -91,11 +92,31 @@ npm run dev
 # Open http://localhost:8787
 ```
 
+Local mode is the default dev command. It runs the Worker and Durable Object locally, but Workers AI is not available in local mode.
+
+### Run remote dev
+
+```bash
+npm run dev-remote
+```
+
+Remote dev requires a registered `workers.dev` subdomain in your Cloudflare account.
+
 ### Deploy
 
 ```bash
 npm run deploy
 ```
+
+## Scripts
+
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Start the Worker locally |
+| `npm run dev-local` | Alias for local dev |
+| `npm run dev-remote` | Start remote Wrangler dev |
+| `npm run deploy` | Deploy to Cloudflare Workers |
+| `npm run typecheck` | Type-check the TypeScript sources |
 
 ## File Structure
 
@@ -112,7 +133,7 @@ cf-ai-agent/
 │       ├── prompts.ts       # Shared prompt text and model ID
 │       └── session.ts       # Session ID + cookie helpers
 ├── wrangler.toml            # Bindings: AI, DO, Workflow
-├── package.json             # Scripts for dev/deploy/typecheck
+├── package.json             # Scripts for local/remote dev, deploy, typecheck
 ├── tsconfig.json            # TypeScript compiler options
 └── README.md
 ```
